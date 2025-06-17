@@ -1,6 +1,5 @@
 <?php
-include_once '../../../configuration/settings-configuration.php';
-require_once 'user-class.php';
+require_once __DIR__ . '/user-class.php';
 
 //URL
 $user = new USER();

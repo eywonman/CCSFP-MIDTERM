@@ -2,7 +2,7 @@
 include_once 'dashboard/user/authentication/user-signup.php';
 
 if ($_SESSION['OTP'] === NULL) {
-    header('Location: signin');
+    header('Location: signin.php');
     exit;
 }
 
@@ -67,7 +67,7 @@ if ($_SESSION['OTP'] === NULL) {
                             <li><a href="<?php echo $config->getSystemInstagram() ?>"><i class="fab fa-instagram"></i></a></li>
                         </ul>
                         <div class="sign-box">
-                            <a href="signin"><i class="fas fa-user"></i>Sign In</a>
+                            <a href="signin.php"><i class="fas fa-user"></i>Sign In</a>
                         </div>
                     </div>
                 </div>
@@ -90,8 +90,8 @@ if ($_SESSION['OTP'] === NULL) {
                                 <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
                                     <ul class="navigation clearfix">
                                         <li class=""><a href="./"><span>Home</span></a></li>
-                                        <li class=""><a href="about-us"><span>About Us</span></a></li>
-                                        <li><a href="contact-us"><span>Contact Us</span></a></li>
+                                        <li class=""><a href="about-us.php"><span>About Us</span></a></li>
+                                        <li><a href="contact-us.php"><span>Contact Us</span></a></li>
                                     </ul>
                                 </div>
                             </nav>
@@ -185,7 +185,7 @@ if ($_SESSION['OTP'] === NULL) {
                                             </div>
                                         </form>
                                         <div class="othre-text">
-                                            <p>Back to <a href="signin">Sign In</a></p>
+                                            <p>Back to <a href="signin.php">Sign In</a></p>
                                         </div>
                                     </div>
                                 </div>
@@ -220,9 +220,9 @@ if ($_SESSION['OTP'] === NULL) {
                                 </div>
                                 <div class="widget-content">
                                     <ul class="links-list class">
-                                        <li><a href="about-us">About Us</a></li>
-                                        <li><a href="find-home">Find Home</a></li>
-                                        <li><a href="contact-us">Contact Us</a></li>ef="">Contact Us</a></li>
+                                        <li><a href="about-us.php">About Us</a></li>
+                                        <li><a href="find-home.php">Find Home</a></li>
+                                        <li><a href="contact-us.php">Contact Us</a></li>ef="">Contact Us</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -251,8 +251,8 @@ if ($_SESSION['OTP'] === NULL) {
                             <p><?php echo $config->getSystemCopyright() ?></p>
                         </div>
                         <ul class="footer-nav pull-right clearfix">
-                            <li><a href="terms">Terms of Service</a></li>
-                            <li><a href="privacy_policy">Privacy Policy</a></li>
+                            <li><a href="terms.php">Terms of Service</a></li>
+                            <li><a href="privacy_policy.php">Privacy Policy</a></li>
                         </ul>
                     </div>
                 </div>

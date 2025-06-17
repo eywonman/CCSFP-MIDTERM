@@ -58,7 +58,7 @@
                             <li><a href="<?php echo $config->getSystemInstagram() ?>"><i class="fab fa-instagram"></i></a></li>
                         </ul>
                         <div class="sign-box">
-                            <a href="signin"><i class="fas fa-user"></i>Sign In</a>
+                            <a href="signin.php"><i class="fas fa-user"></i>Sign In</a>
                         </div>
                     </div>
                 </div>
@@ -81,9 +81,9 @@
                                 <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
                                     <ul class="navigation clearfix">
                                         <li class=""><a href="./"><span>Home</span></a></li>
-                                        <li class="current"><a href="partners"><span>Became A Partner</span></a></li>
-                                        <li class=""><a href="about-us"><span>About Us</span></a></li>
-                                        <li><a href="contact-us"><span>Contact Us</span></a></li>
+                                        <li class="current"><a href="partners.php"><span>Became A Partner</span></a></li>
+                                        <li class=""><a href="about-us.php"><span>About Us</span></a></li>
+                                        <li><a href="contact-us.php"><span>Contact Us</span></a></li>
                                     </ul>
                                 </div>
                             </nav>
@@ -171,9 +171,9 @@
                                 </div>
                                 <div class="widget-content">
                                     <ul class="links-list class">
-                                        <li><a href="about-us">About Us</a></li>
-                                        <li><a href="find-home">Find Home</a></li>
-                                        <li><a href="contact-us">Contact Us</a></li>
+                                        <li><a href="about-us.php">About Us</a></li>
+                                        <li><a href="find-home.php">Find Home</a></li>
+                                        <li><a href="contact-us.php">Contact Us</a></li>
                                     </ul>
                                 </div>
                             </div>

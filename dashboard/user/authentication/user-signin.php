@@ -1,5 +1,5 @@
 <?php
-require_once 'user-class.php';
+require_once __DIR__ . '/user-class.php';
 require_once __DIR__ . '/../../agent/authentication/agent-class.php';
 
 $user = new USER();
@@ -40,7 +40,7 @@ if (isset($_POST['btn-signin'])) {
                         $_SESSION['status'] = "Welcome back! ";
                         $_SESSION['status_code'] = "success";
                         $_SESSION['status_timer'] = 10000;
-                        header("Location: ../../agent/property");
+                        header("Location: ../../agent/property.php");
                         exit();
                     }
                 } elseif ($existingData['user_type'] == 7) {
@@ -50,15 +50,15 @@ if (isset($_POST['btn-signin'])) {
                         $_SESSION['status_code'] = "success";
                         $_SESSION['status_timer'] = 10000;
                         unset($_SESSION['property_details']);
-                        header("Location: ../property-details");
+                        header("Location: ../property-details.php");
                         exit();
                     }
                 } else {
-                    $_SESSION['status_titlek'] = "Sorry !";
+                    $_SESSION['status_title'] = "Sorry !";
                     $_SESSION['status'] = "No account found";
                     $_SESSION['status_code'] = "error";
                     $_SESSION['status_timer'] = 10000000;
-                    header("Location: ../../../signin");
+                    header("Location: ../../../signin.php");
                     exit();
                 }
             } else if ($_SESSION['property_details'] == NULL) {
@@ -68,7 +68,7 @@ if (isset($_POST['btn-signin'])) {
                         $_SESSION['status'] = "Welcome back! ";
                         $_SESSION['status_code'] = "success";
                         $_SESSION['status_timer'] = 10000;
-                        header("Location: ../../agent/property");
+                        header("Location: ../../agent/property.php");
                         exit();
                     }
                 } elseif ($existingData['user_type'] == 7) {
@@ -80,12 +80,13 @@ if (isset($_POST['btn-signin'])) {
                         header("Location: ../");
                         exit();
                     }
+                    //error
                 } else {
-                    $_SESSION['status_titlek'] = "Sorry !";
+                    $_SESSION['status_title'] = "Sorry !";
                     $_SESSION['status'] = "No account found";
                     $_SESSION['status_code'] = "error";
                     $_SESSION['status_timer'] = 10000000;
-                    header("Location: ../../../signin");
+                    header("Location: ../../../signin.php");
                     exit();
                 }
             }
@@ -94,7 +95,7 @@ if (isset($_POST['btn-signin'])) {
             $_SESSION['status'] = "No account found or your account has been removed!";
             $_SESSION['status_code'] = "error";
             $_SESSION['status_timer'] = 10000000;
-            header("Location: ../../../signin");
+            header("Location: ../../../signin.php");
             exit();
         }
     } else {
@@ -102,7 +103,7 @@ if (isset($_POST['btn-signin'])) {
         $_SESSION['status'] = "Invalid captcha, please try again!";
         $_SESSION['status_code'] = "error";
         $_SESSION['status_timer'] = 40000;
-        header("Location: ../../../signin");
+        header("Location: ../../../signin.php");
         exit;
     }
 }

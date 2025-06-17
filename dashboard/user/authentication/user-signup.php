@@ -1,7 +1,8 @@
 <?php
-include_once '../../../configuration/settings-configuration.php';
+include_once __DIR__ . '/../../../configuration/settings-configuration.php';
 include_once __DIR__ . '/../../../database/dbconfig.php';
 require_once 'user-class.php';
+
 
 class UserController
 {
@@ -33,7 +34,7 @@ class UserController
             $_SESSION['status'] = "No email found, Please try again!";
             $_SESSION['status_code'] = "error";
             $_SESSION['status_timer'] = 40000;
-            header('Location: ../../../signin');
+            header('Location: ../../../signin.php');
             exit();
         } else {
             //check if the email already exist before sending OTP
@@ -46,7 +47,7 @@ class UserController
                 $_SESSION['status'] = "Email already taken. Please try another one.";
                 $_SESSION['status_code'] = "error";
                 $_SESSION['status_timer'] = 100000;
-                header('Location: ../../../signin');
+                header('Location: ../../../signin.php');
                 exit();
             }
             else{
@@ -128,7 +129,7 @@ class UserController
             $_SESSION['status_code'] = 'success';
             $_SESSION['status_timer'] = 40000;
 
-            header('Location: ../../../verify-otp');
+            header('Location: ../../../verify-otp.php');
             exit;
         }
     }
@@ -232,7 +233,7 @@ class UserController
             unset($_SESSION['not_verify_email']);
             unset($_SESSION['user_type'] );
 
-            header('Location: ../../../signin');
+            header('Location: ../../../signin.php');
             exit();
 
         } else if ($otp == NULL) {
@@ -240,14 +241,14 @@ class UserController
             $_SESSION['status'] = "It appears that the OTP you entered is invalid. Please try again!";
             $_SESSION['status_code'] = "error";
             $_SESSION['status_timer'] = 40000;
-            header('Location: ../../../verify-otp');
+            header('Location: ../../../verify-otp.php');
             exit();
         } else {
             $_SESSION['status_title'] = "OTP is invalid";
             $_SESSION['status'] = "It appears that the OTP you entered is invalid. Please try again!";
             $_SESSION['status_code'] = "error";
             $_SESSION['status_timer'] = 40000;
-            header('Location: ../../../verify-otp');
+            header('Location: ../../../verify-otp.php');
             exit();
         }
     }
@@ -269,7 +270,7 @@ if (isset($_POST['btn-signup'])) {
 }
 
 //verify email through OTP
-if (isset($_POST['btn-verifies-otp'])) {
+if (isset($_POST['btn-verify-otp'])) {
 
     // Set the verified details in session
     $first_name     = $_SESSION['not_verify_firstname'];
