@@ -1,14 +1,15 @@
 <?php
 session_start();
-include_once  __DIR__.'/../database/dbconfig.php';
+include_once  __DIR__ . '/../database/dbconfig.php';
 // Error reporting
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-class SystemConfig {
+class SystemConfig
+{
     private $conn;
-    
+
     private $system_name;
     private $system_phone_number;
     private $system_email;
@@ -35,7 +36,7 @@ class SystemConfig {
         $database = new Database();
         $db = $database->dbConnection();
         $this->conn = $db;
-        
+
         // get system configuration
         $stmt = $this->runQuery("SELECT * FROM system_config LIMIT 1");
         $stmt->execute(array());
@@ -50,7 +51,7 @@ class SystemConfig {
         $this->system_instagram = $system_config['system_instagram'];
         $this->system_copyright = $system_config['system_copy_right'];
         $this->system_config_last_update = $system_config['updated_at'];
-        
+
         // get email configuration
         $stmt = $this->runQuery("SELECT * FROM email_config LIMIT 1");
         $stmt->execute(array());
@@ -59,7 +60,7 @@ class SystemConfig {
         $this->smtp_email = $email_config['email'];
         $this->smtp_password = $email_config['password'];
         $this->email_config_last_update = $email_config['updated_at'];
-        
+
         // get Google reCAPTCHA V3 API configuration
         $stmt = $this->runQuery("SELECT * FROM google_recaptcha_api LIMIT 1");
         $stmt->execute(array());
@@ -75,7 +76,6 @@ class SystemConfig {
         $google_maps = $stmt->fetch(PDO::FETCH_ASSOC);
 
         $this->google_maps_api = $google_maps['api'];
-
     }
 
     public function runQuery($sql)
@@ -85,96 +85,111 @@ class SystemConfig {
     }
 
     // getters for properties
-    public function getSystemName() {
+    public function getSystemName()
+    {
         return $this->system_name;
     }
 
-    public function getSystemNumber() {
+    public function getSystemNumber()
+    {
         return $this->system_phone_number;
     }
 
-    public function getSystemEmail() {
+    public function getSystemEmail()
+    {
         return $this->system_email;
     }
 
-    public function getSystemLogo() {
+    public function getSystemLogo()
+    {
         return $this->system_logo;
     }
 
-    public function getSystemAddress() {
+    public function getSystemAddress()
+    {
         return $this->system_address;
     }
 
-    public function getSystemFacebook() {
+    public function getSystemFacebook()
+    {
         return $this->system_facebook;
     }
 
-    public function getSystemInstagram() {
+    public function getSystemInstagram()
+    {
         return $this->system_instagram;
     }
 
-    public function getSystemCopyright() {
+    public function getSystemCopyright()
+    {
         return $this->system_copyright;
     }
 
-    public function getSystemConfigLastUpdate() {
+    public function getSystemConfigLastUpdate()
+    {
         return $this->system_config_last_update;
     }
 
-    public function getSmtpEmail() {
+    public function getSmtpEmail()
+    {
         return $this->smtp_email;
     }
 
-    public function getSmtpPassword() {
+    public function getSmtpPassword()
+    {
         return $this->smtp_password;
     }
 
-    public function getEmailConfigLastUpdate() {
+    public function getEmailConfigLastUpdate()
+    {
         return $this->email_config_last_update;
     }
 
-    public function getSKey() {
+    public function getSKey()
+    {
         return $this->SKey;
     }
 
-    public function getSSKey() {
+    public function getSSKey()
+    {
         return $this->SSKey;
     }
 
-    public function getGoogleRecaptchaApiLastUpdate() {
+    public function getGoogleRecaptchaApiLastUpdate()
+    {
         return $this->google_recaptcha_api_last_update;
     }
 
-    public function getGoogleMapsAPI() {
+    public function getGoogleMapsAPI()
+    {
         return $this->google_maps_api;
     }
- 
 }
 
- // Main URL class
-class MainUrl {
+// Main URL class
+class MainUrl
+{
     private $url;
 
-    public function __construct() {
+    public function __construct()
+    {
         // Check if the server is running on localhost
         if ($_SERVER['SERVER_NAME'] === 'localhost' || $_SERVER['SERVER_ADDR'] === '127.0.0.1') {
-            $this->url = "http://localhost/IntProg/CCSFP-MIDTERM/";
+            $this->url = "http://localhost/CCSFP-MIDTERM";
         } else {
             // Set the URL for the web host
             $this->url = "https://magrent.website";
         }
     }
-    
 
-    public function getUrl() {
+
+    public function getUrl()
+    {
         return $this->url;
     }
 
-    public function setUrl($url) {
+    public function setUrl($url)
+    {
         $this->url = $url;
     }
-
-
 }
-
-?>

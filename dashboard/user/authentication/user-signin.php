@@ -34,7 +34,7 @@ if (isset($_POST['btn-signin'])) {
 
             if ($_SESSION['property_details'] == 1) {
 
-                if ($existingData['user_type'] == 8) {
+                if ($existingData['user_type'] == 2) {
                     if ($agent->login($email, $upass)) {
                         $_SESSION['status_title'] = "Hey !";
                         $_SESSION['status'] = "Welcome back! ";
@@ -43,7 +43,7 @@ if (isset($_POST['btn-signin'])) {
                         header("Location: ../../agent/property.php");
                         exit();
                     }
-                } elseif ($existingData['user_type'] == 7) {
+                } elseif ($existingData['user_type'] == 3) {
                     if ($user->login($email, $upass)) {
                         $_SESSION['status_title'] = "Hey !";
                         $_SESSION['status'] = "Welcome back! ";
@@ -62,7 +62,7 @@ if (isset($_POST['btn-signin'])) {
                     exit();
                 }
             } else if ($_SESSION['property_details'] == NULL) {
-                if ($existingData['user_type'] == 8) {
+                if ($existingData['user_type'] == 2) {
                     if ($agent->login($email, $upass)) {
                         $_SESSION['status_title'] = "Hey !";
                         $_SESSION['status'] = "Welcome back! ";
@@ -71,7 +71,7 @@ if (isset($_POST['btn-signin'])) {
                         header("Location: ../../agent/property.php");
                         exit();
                     }
-                } elseif ($existingData['user_type'] == 7) {
+                } elseif ($existingData['user_type'] == 3) {
                     if ($user->login($email, $upass)) {
                         $_SESSION['status_title'] = "Hey !";
                         $_SESSION['status'] = "Welcome back! ";

@@ -56,10 +56,10 @@ include_once 'header.php';
                     </div>
                     <div class="right-column pull-right">
                         <ul class="social-links clearfix">
-                            <li><a href="profile"><i class="fas fa-user"></i>&nbsp;&nbsp;<?php echo $user_email ?></a></li>
+                            <li><a href="profile.php"><i class="fas fa-user"></i>&nbsp;&nbsp;<?php echo $user_email ?></a></li>
                         </ul>
                         <div class="sign-box">
-                        <a href="authentication/user-signout" class="btn-signout"><i class="fa fa-sign-out"></i>Sign out</a>
+                        <a href="authentication/user-signout.php" class="btn-signout"><i class="fa fa-sign-out"></i>Sign out</a>
                         </div>
                     </div>
                 </div>
@@ -82,10 +82,10 @@ include_once 'header.php';
                                 <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
                                     <ul class="navigation clearfix">
                                         <li class=""><a href="./"><span>Home</span></a></li>
-                                        <li class=""><a href="find-home"><span>Find A Home</span></a></li>
-                                        <li class=""><a href="about-us"><span>About Us</span></a></li>
-                                        <li class="current"><a href="contact-us"><span>Contact Us</span></a></li>
-                                        <li class=""><a href="settings"><span>Settings</span></a></li>
+                                        <li class=""><a href="find-home.php"><span>Find A Home</span></a></li>
+                                        <li class=""><a href="about-us.php"><span>About Us</span></a></li>
+                                        <li class="current"><a href="contact-us.php"><span>Contact Us</span></a></li>
+                                        <li class=""><a href="settings.php"><span>Settings</span></a></li>
                                     </ul>
                                 </div>
                             </nav>
@@ -181,9 +181,9 @@ include_once 'header.php';
                                 </div>
                                 <div class="widget-content">
                                     <ul class="links-list class">
-                                        <li><a href="about-us">About Us</a></li>
-                                        <li><a href="find-home">Find Home</a></li>
-                                        <li><a href="contact-us">Contact Us</a></li>
+                                        <li><a href="about-us.php">About Us</a></li>
+                                        <li><a href="find-home.php">Find Home</a></li>
+                                        <li><a href="contact-us.php">Contact Us</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -212,8 +212,8 @@ include_once 'header.php';
                             <p><?php echo $config->getSystemCopyright() ?></p>
                         </div>
                         <ul class="footer-nav pull-right clearfix">
-                            <li><a href="terms">Terms of Service</a></li>
-                            <li><a href="privacy_policy">Privacy Policy</a></li>
+                            <li><a href="terms.php">Terms of Service</a></li>
+                            <li><a href="privacy_policy.php">Privacy Policy</a></li>
                         </ul>
                     </div>
                 </div>

@@ -3,7 +3,6 @@ include_once __DIR__ . '/../../../configuration/settings-configuration.php';
 include_once __DIR__ . '/../../../database/dbconfig.php';
 require_once 'user-class.php';
 
-
 class UserController
 {
     private $user;
@@ -39,7 +38,7 @@ class UserController
         } else {
             //check if the email already exist before sending OTP
             $stmt = $this->user->runQuery("SELECT * FROM users WHERE email=:email");
-            $stmt->execute(array(":email"=>$email));
+            $stmt->execute(array(":email" => $email));
             $stmt->fetch(PDO::FETCH_ASSOC);
 
             if ($stmt->rowCount() > 0) {
@@ -49,90 +48,89 @@ class UserController
                 $_SESSION['status_timer'] = 100000;
                 header('Location: ../../../signin.php');
                 exit();
-            }
-            else{
-            // Store OTP in session
-            $_SESSION['OTP'] = $otp;
+            } else {
+                // Store OTP in session
+                $_SESSION['OTP'] = $otp;
 
-            $subject = "OTP Verification";
-            $message = "
-        <!DOCTYPE html>
-        <html>
-        <head>
-            <meta charset='UTF-8'>
-            <title>OTP Verification</title>
-            <style>
-                body {
-                    font-family: Arial, sans-serif;
-                    background-color: #f5f5f5;
-                    margin: 0;
-                    padding: 0;
-                }
-                
-                .container {
-                    max-width: 600px;
-                    margin: 0 auto;
-                    padding: 30px;
-                    background-color: #ffffff;
-                    border-radius: 4px;
-                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-                }
-                
-                h1 {
-                    color: #333333;
-                    font-size: 24px;
-                    margin-bottom: 20px;
-                }
-                
-                p {
-                    color: #666666;
-                    font-size: 16px;
-                    margin-bottom: 10px;
-                }
-                
-                .button {
-                    display: inline-block;
-                    padding: 12px 24px;
-                    background-color: #0088cc;
-                    color: #ffffff;
-                    text-decoration: none;
-                    border-radius: 4px;
-                    font-size: 16px;
-                    margin-top: 20px;
-                }
-                
-                .logo {
-                    display: block;
-                    text-align: center;
-                    margin-bottom: 30px;
-                }
-            </style>
-        </head>
-        <body>
-            <div class='container'>
-                <div class='logo'>
-                    <img src='cid:logo' alt='Logo' width='150'>
+                $subject = "OTP Verification";
+                $message = "
+                <!DOCTYPE html>
+                <html>
+                <head>
+                <meta charset='UTF-8'>
+                <title>OTP Verification</title>
+                <style>
+                    body {
+                        font-family: Arial, sans-serif;
+                        background-color: #f5f5f5;
+                        margin: 0;
+                        padding: 0;
+                    }
+                    
+                    .container {
+                        max-width: 600px;
+                        margin: 0 auto;
+                        padding: 30px;
+                        background-color: #ffffff;
+                        border-radius: 4px;
+                        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                    }
+                    
+                    h1 {
+                        color: #333333;
+                        font-size: 24px;
+                        margin-bottom: 20px;
+                    }
+                    
+                    p {
+                        color: #666666;
+                        font-size: 16px;
+                        margin-bottom: 10px;
+                    }
+                    
+                    .button {
+                        display: inline-block;
+                        padding: 12px 24px;
+                        background-color: #0088cc;
+                        color: #ffffff;
+                        text-decoration: none;
+                        border-radius: 4px;
+                        font-size: 16px;
+                        margin-top: 20px;
+                    }
+                    
+                    .logo {
+                        display: block;
+                        text-align: center;
+                        margin-bottom: 30px;
+                    }
+                </style>
+                </head>
+                <body>
+                <div class='container'>
+                    <div class='logo'>
+                        <img src='cid:logo' alt='Logo' width='150'>
+                    </div>
+                    <h1>OTP Verification</h1>
+                    <p>Hello, $email</p>
+                    <p>Your OTP is: $otp</p>
+                    <p>If you didn't request an OTP, please ignore this email.</p>
+                    <p>Thank you!</p>
                 </div>
-                <h1>OTP Verification</h1>
-                <p>Hello, $email</p>
-                <p>Your OTP is: $otp</p>
-                <p>If you didn't request an OTP, please ignore this email.</p>
-                <p>Thank you!</p>
-            </div>
-        </body>
-        </html>";
+                </body>
+                </html>";
 
-            $this->user->send_mail($email, $message, $subject, $this->smtp_email, $this->smtp_password, $this->system_name);
+                $this->user->send_mail($email, $message, $subject, $this->smtp_email, $this->smtp_password, $this->system_name);
 
-            $_SESSION['status_title'] = 'Success!';
-            $_SESSION['status'] = "We've sent the OTP to $email";
-            $_SESSION['status_code'] = 'success';
-            $_SESSION['status_timer'] = 40000;
+                $_SESSION['status_title'] = 'Success!';
+                $_SESSION['status'] = "We've sent the OTP to $email";
+                $_SESSION['status_code'] = 'success';
+                $_SESSION['status_timer'] = 40000;
 
-            header('Location: ../../../verify-otp.php');
-            exit;
+                header('Location: ../../../verify-otp.php');
+                exit;
+            }
         }
-    }
     }
 
     public function userVerifyOtp($first_name, $middle_name, $last_name, $email, $user_type, $user_status, $tokencode, $hash_password, $otp)
@@ -147,8 +145,7 @@ class UserController
             $key = base64_encode($id);
             $id = $key;
 
-            $message = 
-            "
+            $message = "
             <!DOCTYPE html>
             <html>
             <head>
@@ -231,11 +228,10 @@ class UserController
             unset($_SESSION['not_verify_middlename']);
             unset($_SESSION['not_verify_lastname']);
             unset($_SESSION['not_verify_email']);
-            unset($_SESSION['user_type'] );
+            unset($_SESSION['user_type']);
 
             header('Location: ../../../signin.php');
             exit();
-
         } else if ($otp == NULL) {
             $_SESSION['status_title'] = "OTP is not found";
             $_SESSION['status'] = "It appears that the OTP you entered is invalid. Please try again!";
@@ -285,7 +281,7 @@ if (isset($_POST['btn-verify-otp'])) {
     // Generate Password
     $varchar            = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     $shuffle            = str_shuffle($varchar);
-    $hash_password      = substr($shuffle,0,8);
+    $hash_password      = substr($shuffle, 0, 8);
 
     $otp = trim($_POST['verify_otp']);
 

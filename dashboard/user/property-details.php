@@ -18,7 +18,7 @@ $stmt->execute(array(":id" => $propertyId));
 $property_data = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if($property_data['status'] == "not_available" || $property_data['status'] == "disabled"){
-    header('Location: property');
+    header('Location: property.php');
 
 }
 
@@ -639,9 +639,9 @@ $all_days = $stmt_all_days->fetchAll(PDO::FETCH_ASSOC);
                                 </div>
                                 <div class="widget-content">
                                     <ul class="links-list class">
-                                        <li><a href="about-us">About Us</a></li>
-                                        <li><a href="find-home">Find Home</a></li>
-                                        <li><a href="contact-us">Contact Us</a></li>
+                                        <li><a href="about-us.php">About Us</a></li>
+                                        <li><a href="find-home.php">Find Home</a></li>
+                                        <li><a href="contact-us.php">Contact Us</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -670,8 +670,8 @@ $all_days = $stmt_all_days->fetchAll(PDO::FETCH_ASSOC);
                             <p><?php echo $config->getSystemCopyright() ?></p>
                         </div>
                         <ul class="footer-nav pull-right clearfix">
-                            <li><a href="terms">Terms of Service</a></li>
-                            <li><a href="privacy_policy">Privacy Policy</a></li>
+                            <li><a href="terms.php">Terms of Service</a></li>
+                            <li><a href="privacy_policy.php">Privacy Policy</a></li>
                         </ul>
                     </div>
                 </div>

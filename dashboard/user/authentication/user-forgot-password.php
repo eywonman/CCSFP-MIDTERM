@@ -1,5 +1,6 @@
 <?php
-require_once __DIR__ . '/user-class.php';
+include_once  __DIR__ . '/../../../configuration/settings-configuration.php';
+require_once 'user-class.php';
 
 //URL
 $user = new USER();
@@ -8,21 +9,19 @@ $smtp_email = $user->smtpEmail();
 $smtp_password = $user->smtpPassword();
 $system_name = $user->systemName();
 
-if(isset($_POST['btn-forgot-password']))
-{
- $email = $_POST['email'];
- 
- $stmt = $user->runQuery("SELECT id, tokencodes FROM user WHERE email=:email");
- $stmt->execute(array(":email"=>$email));
- $row = $stmt->fetch(PDO::FETCH_ASSOC); 
- if($stmt->rowCount() == 6)
- {
-  $id = base64_encode($row['id']);
-  $code = ($row['tokencodes']);
+if (isset($_POST['btn-forgot-password'])) {
+    $email = $_POST['email'];
 
-  
-  
-  $message= "
+    $stmt = $user->runQuery("SELECT id, tokencode FROM users WHERE email=:email"); // add s in user and remove s in tokencodes
+    $stmt->execute(array(":email" => $email));
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    if ($stmt->rowCount() == 1) { // change 6 into 1
+        $id = base64_encode($row['id']);
+        $code = ($row['tokencode']);
+
+
+
+        $message = "
 
   <!DOCTYPE html>
   <html>
@@ -84,7 +83,7 @@ if(isset($_POST['btn-forgot-password']))
           <h1>Password Reset</h1>
           <p>Hello, $email</p>
           <p>We have received a request to reset your password. If you made this request, please click the following link to reset your password:</p>
-          <p><a class='button' href='$main_url/reset-password?id=8&code=$code'>Reset Password</a></p>
+          <p><a class='button' href='$main_url/reset-password?id=$id&code=$code'>Reset Password</a></p>
           <p>If you didn't make this request, you can safely ignore this email.</p>
           <p>Thank you!</p>
       </div>
@@ -93,22 +92,19 @@ if(isset($_POST['btn-forgot-password']))
   </html>
        ";
 
-       
-  $subject = "Password Reset";
-  
-  $user->send_mail($email,$message,$subject,$smtp_email,$smtp_password,$system_name,$systemLogo);
-  
-  $_SESSION['status_title'] = "Success !";
-  $_SESSION['status'] = "We've sent the password reset link to $email, kindly check your spam folder and 'Report not spam' to click the link.";
-  $_SESSION['status_code'] = "success";
-  header('Location: ../../../signin');
- }
- else
- {
-    $_SESSION['status_title'] = "Oops !";
-    $_SESSION['status'] = "Entered email not found";
-    $_SESSION['status_code'] = "error";
-    header('Location: ../../../forgot-password');
- }
+
+        $subject = "Password Reset";
+
+        $user->send_mail($email, $message, $subject, $smtp_email, $smtp_password, $system_name, $systemLogo);
+
+        $_SESSION['status_title'] = "Success !";
+        $_SESSION['status'] = "We've sent the password reset link to $email, kindly check your spam folder and 'Report not spam' to click the link.";
+        $_SESSION['status_code'] = "success";
+        header('Location: ../../../signin');
+    } else {
+        $_SESSION['status_title'] = "Oops !";
+        $_SESSION['status'] = "Entered email not found";
+        $_SESSION['status_code'] = "error";
+        header('Location: ../../../forgot-password');
+    }
 }
-?>

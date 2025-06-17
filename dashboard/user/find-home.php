@@ -58,10 +58,10 @@ include_once 'header.php';
                     </div>
                     <div class="right-column pull-right">
                         <ul class="social-links clearfix">
-                            <li><a href="profile"><i class="fas fa-user"></i>&nbsp;&nbsp;<?php echo $user_email ?></a></li>
+                            <li><a href="profile.php"><i class="fas fa-user"></i>&nbsp;&nbsp;<?php echo $user_email ?></a></li>
                         </ul>
                         <div class="sign-box">
-                            <a href="authentication/user-signout" class="btn-signout"><i class="fa fa-sign-out"></i>Sign out</a>
+                            <a href="authentication/user-signout.php" class="btn-signout"><i class="fa fa-sign-out"></i>Sign out</a>
                         </div>
                     </div>
                 </div>
@@ -84,10 +84,10 @@ include_once 'header.php';
                                 <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
                                     <ul class="navigation clearfix">
                                         <li class=""><a href="./"><span>Home</span></a></li>
-                                        <li class="current"><a href="find-home"><span>Find A Home</span></a></li>
-                                        <li class=""><a href="about-us"><span>About Us</span></a></li>
-                                        <li class=""><a href="contact-us"><span>Contact Us</span></a></li>
-                                        <li class=""><a href="settings"><span>Settings</span></a></li>
+                                        <li class="current"><a href="find-home.php"><span>Find A Home</span></a></li>
+                                        <li class=""><a href="about-us.php"><span>About Us</span></a></li>
+                                        <li class=""><a href="contact-us.php"><span>Contact Us</span></a></li>
+                                        <li class=""><a href="settings.php"><span>Settings</span></a></li>
                                     </ul>
                                 </div>
                             </nav>
