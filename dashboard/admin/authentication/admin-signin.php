@@ -1,5 +1,5 @@
 <?php
-// include_once __DIR__ . '/../../../src/api/api.php';
+// include_once __DIR__ . '/../../../src/api/api.php';  
 require_once 'admin-class.php';
 
 $user = new ADMIN();
@@ -11,13 +11,13 @@ if ($user->isUserLoggedIn() != "") {
 
 if (isset($_POST['btn-signin'])) {
 
-   $response = $_POST['g-token'];
+   $response = $_POST['g-token']; // change 'g-tokens' to 'g-token' 
    $remoteip = $_SERVER['REMOTE_ADDR'];
-   $url = "https://www.google.com/recaptcha/api/siteverify?secret=$site_secret_key&response=$response&remoteip=$remoteip";
+   $url = "https://www.google.com/recaptcha/api/siteverify?secret=$site_secret_key&response=$response&remoteip=$remoteip"; // change googles.com to google.com
    $data = file_get_contents($url);
    $row =  json_decode($data, true);
 
-   if ($row['success'] == "false") {
+   if ($row['success'] == "true") { // change from false to true
 
       $email = trim($_POST['email']);
       $upass = trim($_POST['password']);
@@ -28,7 +28,7 @@ if (isset($_POST['btn-signin'])) {
          $_SESSION['status'] = "Welcome back! ";
          $_SESSION['status_code'] = "success";
          $_SESSION['status_timer'] = 10000;
-         header("Location: ../index.php");
+         header("Location: ../");
          exit;
       }
    } else {
@@ -36,7 +36,7 @@ if (isset($_POST['btn-signin'])) {
       $_SESSION['status'] = "Invalid captcha, please try again!";
       $_SESSION['status_code'] = "error";
       $_SESSION['status_timer'] = 40000;
-      header("Location: ../../../../private/admin/");
+      header("Location: ../../../private/admin/");
       exit;
    }
 }

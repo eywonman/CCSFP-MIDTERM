@@ -175,7 +175,7 @@ class MainUrl
     {
         // Check if the server is running on localhost
         if ($_SERVER['SERVER_NAME'] === 'localhost' || $_SERVER['SERVER_ADDR'] === '127.0.0.1') {
-            $this->url = "http://localhost/CCSFP-MIDTERM";
+            $this->url = "http://localhost/IntProg/CCSFP-MIDTERM";
         } else {
             // Set the URL for the web host
             $this->url = "https://magrent.website";

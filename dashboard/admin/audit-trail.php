@@ -28,19 +28,19 @@ include_once 'header.php';
 				</a>
 			</li>
 			<li>
-				<a href="user">
+				<a href="user.php">
 					<i class='bx bxs-user-plus'></i>
 					<span class="text">User Account</span>
 				</a>
 			</li>
 			<li>
-				<a href="pending-user">
+				<a href="pending-user.php">
 					<i class='bx bxs-user-account'></i>
 					<span class="text">Pending User</span>
 				</a>
 			</li>
 			<li>
-				<a href="package">
+				<a href="package.php">
 					<i class='bx bxs-package' ></i>
 					<span class="text">Package</span>
 				</a>
@@ -54,19 +54,19 @@ include_once 'header.php';
 		</ul>
 		<ul class="side-menu top">
 			<li>
-				<a href="settings">
+				<a href="settings.php">
 					<i class='bx bxs-cog' ></i>
 					<span class="text">Settings</span>
 				</a>
 			</li>
-			<li  class="active">
-				<a href="audit-trail">
+			<li  class="active.php">
+				<a href="audit-trail.php">
 					<i class='bx bxl-blogger'></i>
 					<span class="text">Audit Trail</span>
 				</a>
 			</li>
 			<li>
-				<a href="authentication/admin-signout" class="btn-signout">
+				<a href="authentication/admin-signout.php" class="btn-signout">
 					<i class='bx bxs-log-out-circle' ></i>
 					<span class="text">Signout</span>
 				</a>
@@ -90,7 +90,7 @@ include_once 'header.php';
 			<div class="username">
                 <span>Hello, <label for=""><?php echo $user_fname ?></label></span>
             </div>
-			<a href="profile" class="profile" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Profile">
+			<a href="profile.php" class="profile" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Profile">
 				<img src="../../src/images/profile/<?php echo $user_profile ?>">
 			</a>
 		</nav>

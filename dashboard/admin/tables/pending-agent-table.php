@@ -84,8 +84,8 @@ $output = '
       <td>'.$row["email"].'</td>
       <td><a href="../../src/images/identification/' . $row["valid_id"] . '" data-lightbox="images" data-title="Agent Valid ID"><img src="../../src/images/identification/' . $row["valid_id"] . '"></a></td>
       <td>
-        <button type="button" class="btn btn-success V"><a href="controller/agent-controller?agent_id='.$row["id"].'&accept_application=1" class="accept_agent_account">Accept</a></button>
-        <button type="button" class="btn btn-danger V"><a href="controller/agent-controller?agent_id='.$row["id"].'&delete_application=1" class="delete_agent_account"><i class="bx bx-trash"></i></a></button>
+        <button type="button" class="btn btn-success V"><a href="controller/agent-controller.php?agent_id='.$row["id"].'&accept_application=1" class="accept_agent_account">Accept</a></button>
+        <button type="button" class="btn btn-danger V"><a href="controller/agent-controller.php?agent_id='.$row["id"].'&delete_application=1" class="delete_agent_account"><i class="bx bx-trash"></i></a></button>
       </td>        
     </tr>
     ';

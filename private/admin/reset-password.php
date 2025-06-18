@@ -12,11 +12,11 @@ if(isset($_GET['id']) && isset($_GET['code']))
 {
  $id = base64_decode($_GET['id']);
  $code = $_GET['code'];
- 
+
  $stmt = $user->runQuery("SELECT * FROM users WHERE id=:uid AND tokencode=:token");
  $stmt->execute(array(":uid"=>$id,":token"=>$code));
  $rows = $stmt->fetch(PDO::FETCH_ASSOC);
- 
+
  if($stmt->rowCount() == 1)
  {
   if(isset($_POST['btn-update-password']))
@@ -38,13 +38,13 @@ if(isset($_GET['id']) && isset($_GET['code']))
 
     $stmt = $user->runQuery("UPDATE users SET password=:password, tokencode=:token WHERE id=:uid");
     $stmt->execute(array(":token"=>$code,":password"=>$new_hash_password,":uid"=>$rows['id']));
-    
+
     $_SESSION['status_title'] = "Success !";
     $_SESSION['status'] = "Password is updated. Redirecting to Sign in.";
     $_SESSION['status_code'] = "success";
     header("refresh:4;./");
-   
-  } 
+
+  }
  }
  else
  {
@@ -52,7 +52,7 @@ if(isset($_GET['id']) && isset($_GET['code']))
     $_SESSION['status'] = "Your token is expired.";
     $_SESSION['status_code'] = "error";
  }
- 
+
 }
 
 ?>
@@ -117,7 +117,7 @@ if(isset($_GET['id']) && isset($_GET['code']))
                             <li><a href="<?php echo $config->getSystemInstagram() ?>"><i class="fab fa-instagram"></i></a></li>
                         </ul>
                         <div class="sign-box">
-                            <a href="../../signin"><i class="fas fa-user"></i>Sign In</a>
+                            <a href="../../signin.php"><i class="fas fa-user"></i>Sign In</a>
                         </div>
                     </div>
                 </div>
@@ -140,10 +140,10 @@ if(isset($_GET['id']) && isset($_GET['code']))
                                 <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
                                     <ul class="navigation clearfix">
                                         <li class=""><a href="../../"><span>Home</span></a></li>
-                                        <li class=""><a href="../../partners"><span>Became A Partner</span></a></li>
-                                        <li class=""><a href="../../find-home"><span>Find A Home</span></a></li>
-                                        <li class=""><a href="../../about-us"><span>About Us</span></a></li>
-                                        <li><a href="../../contact-us"><span>Contact Us</span></a></li>
+                                        <li class=""><a href="../../partners.php"><span>Became A Partner</span></a></li>
+                                        <li class=""><a href="../../find-home.php"><span>Find A Home</span></a></li>
+                                        <li class=""><a href="../../about-us.php"><span>About Us</span></a></li>
+                                        <li><a href="../../contact-us.php"><span>Contact Us</span></a></li>
                                     </ul>
                                 </div>
                             </nav>
@@ -277,9 +277,9 @@ if(isset($_GET['id']) && isset($_GET['code']))
                                 </div>
                                 <div class="widget-content">
                                     <ul class="links-list class">
-                                        <li><a href="about-us">About Us</a></li>
-                                        <li><a href="find-home">Find Home</a></li>
-                                        <li><a href="contact-us">Contact Us</a></li>href="">Contact Us</a></li>
+                                        <li><a href="about-us.php">About Us</a></li>
+                                        <li><a href="find-home.php">Find Home</a></li>
+                                        <li><a href="contact-us.php">Contact Us</a></li>href="">Contact Us</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -308,8 +308,8 @@ if(isset($_GET['id']) && isset($_GET['code']))
                             <p><?php echo $config->getSystemCopyright() ?></p>
                         </div>
                         <ul class="footer-nav pull-right clearfix">
-                            <li><a href="terms">Terms of Service</a></li>
-                            <li><a href="privacy_policy">Privacy Policy</a></li>
+                            <li><a href="terms.php">Terms of Service</a></li>
+                            <li><a href="privacy_policy.php">Privacy Policy</a></li>
                         </ul>
                     </div>
                 </div>

@@ -12,7 +12,7 @@ $system_name = $user->systemName();
 if (isset($_POST['btn-forgot-password'])) {
     $email = $_POST['email'];
 
-    $stmt = $user->runQuery("SELECT id, tokencode FROM users WHERE email=:email"); // add s in user and remove s in tokencodes
+    $stmt = $user->runQuery("SELECT id, tokencode FROM users WHERE email=:email"); 
     $stmt->execute(array(":email" => $email));
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
     if ($stmt->rowCount() == 1) { // change 6 into 1
@@ -83,7 +83,7 @@ if (isset($_POST['btn-forgot-password'])) {
           <h1>Password Reset</h1>
           <p>Hello, $email</p>
           <p>We have received a request to reset your password. If you made this request, please click the following link to reset your password:</p>
-          <p><a class='button' href='$main_url/reset-password?id=$id&code=$code'>Reset Password</a></p>
+          <p><a class='button' href='$main_url/reset-password.php?id=$id&code=$code'>Reset Password</a></p>
           <p>If you didn't make this request, you can safely ignore this email.</p>
           <p>Thank you!</p>
       </div>
@@ -100,11 +100,11 @@ if (isset($_POST['btn-forgot-password'])) {
         $_SESSION['status_title'] = "Success !";
         $_SESSION['status'] = "We've sent the password reset link to $email, kindly check your spam folder and 'Report not spam' to click the link.";
         $_SESSION['status_code'] = "success";
-        header('Location: ../../../signin');
+        header('Location: ../../../signin.php');
     } else {
         $_SESSION['status_title'] = "Oops !";
         $_SESSION['status'] = "Entered email not found";
         $_SESSION['status_code'] = "error";
-        header('Location: ../../../forgot-password');
+        header('Location: ../../../forgot-password.php');
     }
 }

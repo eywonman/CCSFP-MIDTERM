@@ -62,7 +62,7 @@ include_once 'header.php';
                             <li><a href="profile"><i class="fas fa-user"></i>&nbsp;&nbsp;<?php echo $user_email ?></a></li>
                         </ul>
                         <div class="sign-box">
-                            <a href="authentication/agent-signout" class="btn-signout"><i class="fa fa-sign-out"></i>Sign out</a>
+                            <a href="authentication/agent-signout.php" class="btn-signout"><i class="fa fa-sign-out"></i>Sign out</a>
                         </div>
                     </div>
                 </div>
@@ -86,15 +86,15 @@ include_once 'header.php';
                                     <ul class="navigation clearfix">
                                         <li class="dropdown current"><a href="#"><span>Property</span></a>
                                             <ul>
-                                                <li><a href="property">Property</a></li>
-                                                <li><a href="property-registration">Property Registration</a></li>
+                                                <li><a href="property.php">Property</a></li>
+                                                <li><a href="property-registration.php">Property Registration</a></li>
                                                 <li><a href="property-reservation?status=?">Property Reservation</a></li>
                                             </ul>
                                         </li> 
-                                        <li class=""><a href="package"><span>Package</span></a></li>
-                                        <li class=""><a href="about-us"><span>About Us</span></a></li>
-                                        <li class=""><a href="contact-us"><span>Contact Us</span></a></li>
-                                        <li class=""><a href="settings"><span>Settings</span></a></li>
+                                        <li class=""><a href="package.php"><span>Package</span></a></li>
+                                        <li class=""><a href="about-us.php"><span>About Us</span></a></li>
+                                        <li class=""><a href="contact-us.php"><span>Contact Us</span></a></li>
+                                        <li class=""><a href="settings.php"><span>Settings</span></a></li>
                                     </ul>
                                 </div>
                             </nav>
@@ -156,7 +156,7 @@ include_once 'header.php';
                 <div class="content-box clearfix">
                     <h1>My Property</h1>
                     <ul class="bread-crumb clearfix">
-                        <li><a href="property">Home</a></li>
+                        <li><a href="property.php">Home</a></li>
                         <li>My Property</li>
                     </ul>
                 </div>
@@ -404,9 +404,9 @@ include_once 'header.php';
                                 </div>
                                 <div class="widget-content">
                                     <ul class="links-list class">
-                                        <li><a href="about-us">About Us</a></li>
-                                        <li><a href="find-home">Find Home</a></li>
-                                        <li><a href="contact-us">Contact Us</a></li>
+                                        <li><a href="about-us.php">About Us</a></li>
+                                        <li><a href="find-home.php">Find Home</a></li>
+                                        <li><a href="contact-us.php">Contact Us</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -435,8 +435,8 @@ include_once 'header.php';
                             <p><?php echo $config->getSystemCopyright() ?></p>
                         </div>
                         <ul class="footer-nav pull-right clearfix">
-                            <li><a href="terms">Terms of Service</a></li>
-                            <li><a href="privacy_policy">Privacy Policy</a></li>
+                            <li><a href="terms.php">Terms of Service</a></li>
+                            <li><a href="privacy_policy.php">Privacy Policy</a></li>
                         </ul>
                     </div>
                 </div>

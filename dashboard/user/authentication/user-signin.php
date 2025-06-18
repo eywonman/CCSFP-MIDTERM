@@ -80,7 +80,7 @@ if (isset($_POST['btn-signin'])) {
                         header("Location: ../");
                         exit();
                     }
-                    //error
+                    
                 } else {
                     $_SESSION['status_title'] = "Sorry !";
                     $_SESSION['status'] = "No account found";

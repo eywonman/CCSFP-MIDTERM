@@ -128,7 +128,7 @@ class AgentController
             $_SESSION['status_timer'] = 100000;
         }
 
-        header('Location: ../pending-user');
+        header('Location: ../pending-user.php');
     }
 
     public function deleteApplication($agent_id)
@@ -232,7 +232,7 @@ class AgentController
             $_SESSION['status_timer'] = 100000;
         }
 
-        header('Location: ../pending-user');
+        header('Location: ../pending-user.php');
     }
 
         //activate agent
@@ -257,7 +257,7 @@ class AgentController
                 $_SESSION['status_timer'] = 100000;
             }
     
-            header('Location: ../user');
+            header('Location: ../user.php');
             exit();
     
         }
@@ -284,7 +284,7 @@ class AgentController
                 $_SESSION['status_timer'] = 100000;
             }
     
-            header('Location: ../user');
+            header('Location: ../user.php');
             exit();
     
         }

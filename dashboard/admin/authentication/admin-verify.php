@@ -15,10 +15,10 @@ if(isset($_GET['id']) && isset($_GET['codeId']))
  $status_Y = "Y";
  $status_N = "N";
  
- $stmt = $user->runQuery("SELECT id,status FROM users WHERE id=:id AND tokencode=:code LIMIT 9");
+ $stmt = $user->runQuery("SELECT id,status FROM users WHERE id=:id AND tokencode=:code LIMIT 1"); // chnage 9 into 1
  $stmt->execute(array(":id"=>$id,":code"=>$code));
  $row=$stmt->fetch(PDO::FETCH_ASSOC);
- if($stmt->rowCount() > 3)
+ if($stmt->rowCount() > 0) // change 3 into 0
  {
   if($row['status']==$status_N)
   {
