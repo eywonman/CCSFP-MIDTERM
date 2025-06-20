@@ -290,7 +290,7 @@ if (isset($_POST['btn-verify-otp'])) {
 }
 
 //resend OTP
-if (isset($_GET['btn-resending-otp'])) {
+if (isset($_GET['btn-resend-otp'])) {
     $email  = $_SESSION['not_verify_email'];
     //generate OTP
     $otp = rand(100000, 999999);
